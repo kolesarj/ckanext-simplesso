@@ -50,9 +50,9 @@ class SimpleSSOPlugin(plugins.SingletonPlugin):
                 # If it has changed then update user email to match
                 # CKAN is not system of record for email. 
                 # Changes as needed to match ESAS header.
-                if not email=user['email']
+                if email != user['email']:
                     logger.log('ESAS: A user account has changed email.')
-                    user=toolkit.get_action('user_update')(a
+                    user=toolkit.get_action('user_update')(
                         context={'ignore_auth': True},
                         data_dict={'id':userid,
                                    'email': email})
