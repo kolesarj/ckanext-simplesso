@@ -2,9 +2,7 @@
 
 '''
 import uuid
-
-import pylons.config as config
-
+from ckantoolkit import config
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import logging
@@ -58,7 +56,6 @@ class SimpleSSOPlugin(plugins.SingletonPlugin):
                         context={'ignore_auth': True},
                         data_dict={'id':userid,
                                    'email': email})
-				 
             if not user:
                 # Check if user email is already associated with an existing account.
                 # If there are duplicate emails raise error
